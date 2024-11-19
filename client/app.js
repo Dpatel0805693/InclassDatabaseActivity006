@@ -3,6 +3,7 @@ const API_URL = 'http://localhost:3000/api/paintings';
 document.addEventListener('DOMContentLoaded', async () => {
     const list = document.getElementById('list');
     const form = document.getElementById('edit-form');
+    const paintingDetails = document.getElementById('painting-details');
 
     // Fetch and display paintings
     const response = await fetch(API_URL);
@@ -10,8 +11,22 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     paintings.forEach(painting => {
         const listItem = document.createElement('li');
-        listItem.textContent = painting.title;
-        listItem.addEventListener('click', () => populateForm(painting));
+        listItem.className = 'painting-item';
+
+        // Image for the painting
+        const img = document.createElement('img');
+        img.src = painting.image;
+        img.alt = painting.title;
+        img.className = 'painting-thumbnail';
+
+        // Button link for the painting
+        const button = document.createElement('button');
+        button.textContent = painting.title;
+        button.className = 'painting-button';
+        button.addEventListener('click', () => populateForm(painting));
+
+        listItem.appendChild(img);
+        listItem.appendChild(button);
         list.appendChild(listItem);
     });
 
@@ -34,6 +49,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function populateForm(painting) {
+    form.style.display = 'block'; // Show the form
+    paintingDetails.style.display = 'block'; // Ensure right-side is visible
+
     document.getElementById('painting-id').value = painting._id;
     document.getElementById('title').value = painting.title;
     document.getElementById('artist').value = painting.artist;
