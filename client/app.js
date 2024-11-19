@@ -1,60 +1,56 @@
-const API_URL = 'http://localhost:3000/api/paintings';
-
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
+    const API_URL = 'http://localhost:3000/api/paintings'; // Server endpoint
     const list = document.getElementById('list');
-    const form = document.getElementById('edit-form');
     const paintingDetails = document.getElementById('painting-details');
+    const form = document.getElementById('edit-form');
 
-    // Fetch and display paintings
-    const response = await fetch(API_URL);
-    const paintings = await response.json();
+    // Fetch paintings from the API
+    async function fetchPaintings() {
+        try {
+            const response = await fetch(API_URL);
+            if (!response.ok) throw new Error('Error fetching paintings');
+            return await response.json();
+        } catch (error) {
+            console.error('Error:', error.message);
+            return [];
+        }
+    }
 
-    paintings.forEach(painting => {
-        const listItem = document.createElement('li');
-        listItem.className = 'painting-item';
+    // Populate the paintings list
+    function populateList(paintings) {
+        list.innerHTML = ''; // Clear existing list
+        paintings.forEach(painting => {
+            const listItem = document.createElement('li');
+            listItem.classList.add('painting-item');
 
-        // Image for the painting
-        const img = document.createElement('img');
-        img.src = painting.image;
-        img.alt = painting.title;
-        img.className = 'painting-thumbnail';
+            // Painting image
+            const img = document.createElement('img');
+            img.src = painting.image || 'default.jpg'; // Fallback image
+            img.alt = painting.title;
+            img.className = 'painting-thumbnail';
 
-        // Button link for the painting
-        const button = document.createElement('button');
-        button.textContent = painting.title;
-        button.className = 'painting-button';
-        button.addEventListener('click', () => populateForm(painting));
+            // Button for painting
+            const button = document.createElement('button');
+            button.textContent = painting.title;
+            button.className = 'painting-button';
+            button.addEventListener('click', () => displayDetails(painting));
 
-        listItem.appendChild(img);
-        listItem.appendChild(button);
-        list.appendChild(listItem);
-    });
-
-    // Save button
-    document.getElementById('save').addEventListener('click', async () => {
-        const id = document.getElementById('painting-id').value;
-        const title = document.getElementById('title').value;
-        const artist = document.getElementById('artist').value;
-        const year = document.getElementById('year').value;
-        const description = document.getElementById('description').value;
-
-        await fetch(`${API_URL}/update`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id, title, artist, year, description }),
+            listItem.appendChild(img);
+            listItem.appendChild(button);
+            list.appendChild(listItem);
         });
+    }
 
-        alert('Painting updated successfully');
-    });
+    // Display painting details in the form
+    function displayDetails(painting) {
+        paintingDetails.style.display = 'block'; // Show the form
+        document.getElementById('painting-id').value = painting._id;
+        document.getElementById('title').value = painting.title;
+        document.getElementById('artist').value = painting.artist;
+        document.getElementById('year').value = painting.year;
+        document.getElementById('description').value = painting.description;
+    }
+
+    // Fetch and display paintings on page load
+    fetchPaintings().then(paintings => populateList(paintings));
 });
-
-function populateForm(painting) {
-    form.style.display = 'block'; // Show the form
-    paintingDetails.style.display = 'block'; // Ensure right-side is visible
-
-    document.getElementById('painting-id').value = painting._id;
-    document.getElementById('title').value = painting.title;
-    document.getElementById('artist').value = painting.artist;
-    document.getElementById('year').value = painting.year;
-    document.getElementById('description').value = painting.description;
-}
