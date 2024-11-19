@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/app.js" defer></script>
+    <title>Paintings</title>
+</head>
+<body>
+    <div id="container">
+        <div id="paintings-list">
+            <h3>Paintings</h3>
+            <ul id="list"></ul>
+        </div>
+        <div id="painting-details">
+            <h3>Edit Painting</h3>
+            <form id="edit-form">
+                <input type="hidden" id="painting-id">
+                <label>Title:</label>
+                <input type="text" id="title"><br>
+                <label>Artist:</label>
+                <input type="text" id="artist"><br>
+                <label>Year:</label>
+                <input type="number" id="year"><br>
+                <label>Description:</label>
+                <textarea id="description"></textarea><br>
+                <button type="button" id="save">Save</button>
+                <button type="reset">Reset</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
