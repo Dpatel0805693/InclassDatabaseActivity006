@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-const PaintingSchema = new mongoose.Schema({
+const paintingSchema = new mongoose.Schema({
     title: String,
     artist: String,
     year: Number,
-    image: String, // URL of the painting's image
     description: String,
+    image: String,
 });
 
-module.exports = mongoose.model('Painting', PaintingSchema);
+module.exports = mongoose.models.Painting || mongoose.model('Painting', paintingSchema);
