@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.0"
+  },
+  "name": "inclassdatabaseactivity006-main",
+  "version": "1.0.0",
+  "description": "This is an in class activity for CSC 350, which covers inserting/updating and deleting content from a NoSQL database.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
