@@ -5,25 +5,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  background-color: #f2e6ff; /* Light lavender background */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-#outer{
+
+#outer {
   display: flex;
   flex-direction: row;
 }
-.Window{
+
+.Window {
   display: flex;
   flex-direction: column;
   height: 100vh;
   scrollbar-width: none;
 }
-#Title{
-  background-color: rgb(31, 125, 203); 
+
+#Title {
+  background-color: #9370db; /* Medium purple */
   color: white;
   padding: 20px;
   text-align: center;
@@ -31,118 +34,116 @@ code {
   width: 100vw;
   display: flex;
   justify-content: center;
-  align-items: center;  
-}
-#smallWindow{
-  overflow-y:scroll;
-  height: '600px';
-  width: 400px;
-  max-width: 400px;
-  border-right: 1px solid gray ;
-  height:100vh;
-  background-color:whitesmoke ;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-form{
-  display:flex;
+#smallWindow {
+  overflow-y: scroll;
+  width: 300px; /* Reduced width */
+  max-width: 300px;
+  border-right: 1px solid #c3a4ff; /* Soft purple border */
+  height: 100vh;
+  background-color: #ede7f6; /* Very light purple */
+}
+
+form {
+  display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: center;
-  height:fit-content;
-  width:80%;
+  width: 80%;
   max-width: 80%;
-  padding-top: 0px;
-  padding-left: 20px;
-  padding-bottom: 20px;
-  padding-right: 20px;
-  border: 2px solid rgb(31, 125, 203);
-  border-radius: 5px;
-  margin:50px ;
-  box-shadow: 5px 5px  lightgray;
-
+  padding: 20px;
+  border: 2px solid #9370db; /* Medium purple */
+  border-radius: 8px;
+  margin: 50px auto;
+  background-color: white;
+  box-shadow: 5px 5px rgba(147, 112, 219, 0.5); /* Purple shadow */
 }
-form button{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+
+form button {
   padding: 10px;
   width: 100%;
-  margin:10px;
-  cursor:pointer;
-  box-shadow: 2px 2px lightgray;
-  background-color: white;
-  border: 1px solid whitesmoke;
+  margin: 10px 0;
+  cursor: pointer;
+  box-shadow: 2px 2px rgba(147, 112, 219, 0.5); /* Purple shadow */
+  background-color: #f2e6ff; /* Light lavender */
+  border: 1px solid #c3a4ff;
   border-radius: 3px;
-}
-form button:hover{
-  background-color: lightgrey;
-
+  font-weight: bold;
 }
 
+form button:hover {
+  background-color: #c3a4ff; /* Soft purple */
+  color: white;
+}
 
-
-p.default{
-  display:flex;
-  width:100vh;
+p.default {
+  display: flex;
+  width: 100vh;
   justify-self: center;
   padding: 50px;
-  
-}
-input{
-  display:flex;
-  padding: 5px;
-  width:700px;
-
 }
 
-textarea{
-  display: flex;
-  width:700px;
+input {
   padding: 5px;
+  width: 700px;
+  border: 1px solid #c3a4ff;
+  border-radius: 3px;
+  background-color: #ede7f6; /* Light purple */
+}
+
+textarea {
+  width: 700px;
+  padding: 5px;
+  border: 1px solid #c3a4ff;
+  border-radius: 3px;
+  background-color: #ede7f6; /* Light purple */
   resize: vertical;
-  height:150px;
+  height: 150px;
 }
 
-#imageDiv{
+#imageDiv {
   display: flex;
   flex-direction: row;
   align-items: center;
-  
-
 }
 
-#imageDiv img{
-  width:150px;
+#imageDiv img {
+  width: 150px;
   max-width: 150px;
-  height:150px;
+  height: 150px;
   max-height: 150px;
-  border:1px solid rgb(31, 125, 203);
-  border-radius: 5px;
-  margin:5px;
+  border: 1px solid #9370db; /* Medium purple */
+  border-radius: 8px;
+  margin: 5px;
 }
 
-#imageDiv button{
-  width:150px;
+#imageDiv button {
+  width: 150px;
   max-width: 150px;
-  height:150px;
-  max-height: fit-content;
+  height: 150px;
   text-align: center;
-  box-shadow: 2px 2px lightgray;
-  background-color: white;
-  border: 1px solid whitesmoke;
-  border-radius: 3px;
+  box-shadow: 2px 2px rgba(147, 112, 219, 0.5); /* Purple shadow */
+  background-color: #f2e6ff; /* Light lavender */
+  border: 1px solid #c3a4ff;
+  border-radius: 8px;
   cursor: pointer;
-
+  font-weight: bold;
 }
 
-#imageDiv button:hover{
-  background-color: lightgray;
+#imageDiv button:hover {
+  background-color: #c3a4ff; /* Soft purple */
+  color: white;
 }
 
-label{
+label {
   margin-bottom: 5px;
   padding: 10px;
   font-size: 14px;
+  color: #9370db; /* Medium purple */
+  font-weight: bold;
 }
-
-
