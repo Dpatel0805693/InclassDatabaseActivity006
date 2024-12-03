@@ -1,5 +1,5 @@
 // src/components/PaintingForm.js
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const PaintingForm = ({ selectedPainting, onUpdatePainting }) => {
   const [formData, setFormData] = useState({});
