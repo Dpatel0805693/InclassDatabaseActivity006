@@ -11,7 +11,7 @@ const seedData = async () => {
         const newPainting = new Painting(painting);
         await newPainting.save();
       }
-      console.log('Seeding completed!');
+      console.log('Seeding Completed!');
     } catch (error) {
       console.error('Error during seeding:', error);
     }
